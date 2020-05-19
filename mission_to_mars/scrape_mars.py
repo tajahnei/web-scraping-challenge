@@ -9,14 +9,12 @@ def init_browser():
     # Replace the path with your actual path to the chromedriver
 
     #Mac Users
-    #executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    #return Browser('chrome', **executable_path, headless=False)
+    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+    return Browser('chrome', **executable_path, headless=False)
 
-    #Windows Users
-    # executable_path = {'executable_path': '/Users/cantu/Desktop/Mission-to-Mars'}
-    # return Browser('chrome', **executable_path, headless=False)
-    exec_path = {'executable_path': '/app/.chromedriver/bin/chromedriver'}
-    return Browser('chrome', headless=True, **exec_path)
+
+    #exec_path = {'executable_path': '/app/.chromedriver/bin/chromedriver'}
+    #return Browser('chrome', headless=True, **exec_path)
 
 # Create Mission to Mars global dictionary that can be imported into Mongo
 mars_info = {}
@@ -63,7 +61,7 @@ def scrape_mars_image():
         # Initialize browser 
         browser = init_browser()
 
-        #browser.is_element_present_by_css("img.jpg", wait_time=1)
+        
 
         # Visit Mars Space Images through splinter module
         image_url_featured = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
