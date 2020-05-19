@@ -3,10 +3,10 @@ from bs4 import BeautifulSoup
 from splinter import Browser
 import pandas as pd 
 import requests 
-
+from time import sleep
 # Initialize browser
 def init_browser(): 
-    # Replace the path with your actual path to the chromedriver
+    
 
     #Mac Users
     executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
@@ -31,7 +31,7 @@ def scrape_mars_news():
         # Visit Nasa news url through splinter module
         url = 'https://mars.nasa.gov/news/'
         browser.visit(url)
-
+        
         # HTML Object
         html = browser.html
 
@@ -40,7 +40,7 @@ def scrape_mars_news():
 
 
         # Retrieve the latest element that contains news title and news_paragraph
-        news_title = soup.find('div', class_='content_title').find('a').text
+        news_title = soup.find('div', class_='content_title').find().text
         news_p = soup.find('div', class_='article_teaser_body').text
 
         # Dictionary entry from MARS NEWS
